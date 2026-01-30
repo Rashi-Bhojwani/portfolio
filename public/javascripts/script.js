@@ -110,8 +110,8 @@ if (contactForm) {
       const data = await res.json();
 
       if (data.success) {
-        this.reset();       // CLEAR INPUTS FIRST
-        this.name.focus();  // optional: focus first input
+        this.reset();      
+        this.name.focus();  
         alert("Message sent successfully!");
       } else {
         alert("Failed to send message");
