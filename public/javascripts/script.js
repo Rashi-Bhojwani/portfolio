@@ -83,12 +83,11 @@ const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
   contactForm.addEventListener("submit", async function (e) {
-    e.preventDefault();
+    e.preventDefault(); // stop default form submission
 
-    const formData = new FormData(this);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
+    const name = this.name.value.trim();
+    const email = this.email.value.trim();
+    const message = this.message.value.trim();
 
     if (!name || !email || !message) {
       alert("Please fill in all fields");
@@ -102,32 +101,32 @@ if (contactForm) {
     submitBtn.disabled = true;
 
     try {
-  const res = await fetch("/contact", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ name, email, message })
+      const res = await fetch("/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        this.reset();       // CLEAR INPUTS FIRST
+        this.name.focus();  // optional: focus first input
+        alert("Message sent successfully!");
+      } else {
+        alert("Failed to send message");
+      }
+
+    } catch (err) {
+      alert("Server error");
+      console.error(err);
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
   });
-
-  const data = await res.json();
-
-  if (data.success) {
-    alert("Message sent successfully!");
-    this.reset();
-  } else {
-    alert("Failed to send message");
-  }
-} catch (err) {
-  alert("Server error");
-  console.error(err);
 }
 
-submitBtn.textContent = originalText;
-submitBtn.disabled = false;
-
-  });
-}
 
 
 
