@@ -236,3 +236,40 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
     alert("Something went wrong");
   }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  if (!form) return; // safety
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); // stop redirect
+
+    const submitBtn = form.querySelector("button");
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Sending...";
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        form.reset(); 
+      } else {
+        alert("Failed to send message");
+      }
+    } catch (error) {
+      alert("Something went wrong");
+      console.error(error);
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.innerText = "Send Message";
+  });
+});
