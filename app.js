@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 // routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 
 // 404 handler
 app.use(function(req, res, next) {

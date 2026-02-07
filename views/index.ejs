@@ -304,54 +304,75 @@
 
 
         <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">Let's work together on your next project</p>
-                </div>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>rashi.bhojwani16@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📱</div>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+91 1234567894</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Ajmer (Rajasthan)</p>
-                            </div>
-                        </div>
-                    </div>
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" required>
-                            <label for="name">Your Name</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" required>
-                            <label for="email">Your Email</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                            <label for="message">Your Message</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Let's work together on your next project</p>
+    </div>
+
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <p>rashi.bhojwani16@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <h4>Phone</h4>
+            <p>+91 1234567894</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>Ajmer (Rajasthan)</p>
+          </div>
+        </div>
+      </div>
+
+      <form
+  class="contact-form"
+  action="https://formsubmit.co/rashi.bhojwani16@gmail.com"
+  method="POST"
+>
+  <div class="form-group">
+    <input type="text" name="name" required>
+    <label>Your Name</label>
+  </div>
+
+  <div class="form-group">
+    <input type="email" name="email" required>
+    <label>Your Email</label>
+  </div>
+
+  <div class="form-group">
+    <textarea name="message" rows="5" required></textarea>
+    <label>Your Message</label>
+  </div>
+
+  <!-- IMPORTANT hidden fields -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_subject" value="New Portfolio Message">
+  <input type="hidden" name="_next" value="http://localhost:3000/#contact">
+
+  <button type="submit" class="btn btn-primary btn-full">
+    Send Message
+  </button>
+</form>
+
+    </div>
+  </div>
+</section>
+
 
         <footer class="portfolio-footer">
             <div class="footer-grid">
